@@ -55,12 +55,13 @@ def update
 end
 
 def self.new_from_db(row)
-  self.map do |row|
-    self.id = row[0]
-    self.name = row[1]
-    self.grade = row[2]
-  end 
+  new_student = self.new
+  new_student.id = row[0]
+  new_student.name = row[1]
+  new_student.grade = row[2]
+  new_student
 end
+
 
 
 
