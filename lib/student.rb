@@ -54,7 +54,12 @@ def update
   DB[:conn].execute(sql, self.name, self.grade, self.id)
 end
 
-def self.new_from_db
+def self.new_from_db(row)
+  self.map do |row|
+    self.id = row[0]
+    self.name = row[1]
+    self.grade = row[2]
+  end 
 end
 
 
